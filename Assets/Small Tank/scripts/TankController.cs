@@ -6,7 +6,7 @@ public class TankController : MonoBehaviour
 {
 
     private Vector3 velocity;
-    public float forwardSpeed = 5.0f;
+    public float forwardSpeed = 7.0f;
     public float backSpeed = 2.0f;
     public float rotateSpeed = 2.0f;
     
@@ -35,7 +35,8 @@ public class TankController : MonoBehaviour
 
         transform.Rotate(0, h * rotateSpeed, 0);
 
-        Debug.Log("絶対回転量" + transform.rotation);
+        // Debug.Log("絶対回転量" + transform.rotation);
         
     }
+
 }
