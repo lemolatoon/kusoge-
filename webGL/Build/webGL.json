@@ -1,7 +1,7 @@
 {
 "companyName": "DefaultCompany",
 "productName": "kusoge-",
-"productVersion": "0.1",
+"productVersion": "0.1.1",
 "dataUrl": "webGL.data.unityweb",
 "wasmCodeUrl": "webGL.wasm.code.unityweb",
 "wasmFrameworkUrl": "webGL.wasm.framework.unityweb",
