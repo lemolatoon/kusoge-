@@ -61,3 +61,7 @@ crashlytics-build.properties
 #vscode generated setting files
 .vscode/
 
+#learge TexureFiles
+Assets/TerrainTexturesPackFree/
+Assets/TerrainTexturesPackFree/TerrainTextures/
+Assets/ADG_Textures/
