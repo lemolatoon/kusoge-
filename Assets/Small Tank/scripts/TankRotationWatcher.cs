@@ -24,7 +24,7 @@ public class TankRotationWatcher : MonoBehaviour
         rotation = this.transform.localRotation.eulerAngles;
         float x = rotation.x % 360;
         float z = rotation.z % 360;
-        if((x >= 50 && x <=310) || (z >= 50 && z <= 310)) {
+        if((x >= 50 && x <=310) || (z >= 50 && z <= 310) || this.transform.position.y >= 30) {
             if(!isTurned) { //ひっくり返りの最初ならば
                 Debug.Log("ひっくり返ってるで");
                 isTurned = true;
