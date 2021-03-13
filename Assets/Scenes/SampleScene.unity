@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 1014527941}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -372,6 +372,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7139717898056329519 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1641320063059632034, guid: 555dc8764d6aa2a47a761af2adec9ec4,
+    type: 3}
+  m_PrefabInstance: {fileID: 8489985132705445517}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7139717898056329520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7139717898056329519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57978cfd19027a6479ebd2ee78e723db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverTime: 5
 --- !u!1001 &8489985132705445517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -392,12 +411,12 @@ PrefabInstance:
     - target: {fileID: 2129344223593645336, guid: 555dc8764d6aa2a47a761af2adec9ec4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 74.6
+      value: 65.424
       objectReference: {fileID: 0}
     - target: {fileID: 2129344223593645336, guid: 555dc8764d6aa2a47a761af2adec9ec4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 54.1
+      value: 106.393
       objectReference: {fileID: 0}
     - target: {fileID: 2129344223593645336, guid: 555dc8764d6aa2a47a761af2adec9ec4,
         type: 3}
@@ -438,6 +457,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3290431842563538096, guid: 555dc8764d6aa2a47a761af2adec9ec4,
+        type: 3}
+      propertyPath: forwardSpeed
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 555dc8764d6aa2a47a761af2adec9ec4, type: 3}
