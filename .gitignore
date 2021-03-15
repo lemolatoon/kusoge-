@@ -62,6 +62,10 @@ crashlytics-build.properties
 .vscode/
 
 #learge TexureFiles
-Assets/TerrainTexturesPackFree/
-Assets/TerrainTexturesPackFree/TerrainTextures/
-Assets/ADG_Textures/
+Assets/Resources/TerrainTexturesPackFree/
+Assets/Resources/TerrainTexturesPackFree/TerrainTextures/
+Assets/Resources/ADG_Textures/
+
+#built files
+webGL/
+

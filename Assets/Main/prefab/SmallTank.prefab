@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1478074498
 Transform:
   m_ObjectHideFlags: 0
@@ -39,7 +39,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1478074497}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -101,7 +101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1986385108
 Transform:
   m_ObjectHideFlags: 0
@@ -356,10 +356,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3991548305568736852}
   - component: {fileID: 7139717898056329520}
-  - component: {fileID: 974130352}
-  - component: {fileID: 3079491552343242735}
+  - component: {fileID: 522928901744943100}
   m_Layer: 0
-  m_Name: SmallTank_Battle
+  m_Name: SmallTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -397,7 +396,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &974130352
+--- !u!114 &522928901744943100
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -406,29 +405,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4336690075909553390}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07d30911c694b0a47b881e09e4c796ae, type: 3}
+  m_Script: {fileID: 11500000, guid: 70cfe50baa210fc4aae39d15f819b17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  master: {fileID: 0}
-  bullet: {fileID: 7920680209554371550, guid: b6a3acff2cb893f4891779961cabc3fa, type: 3}
-  forwardSpeed: 1
-  sideSpeed: 1
-  centerOfMass: {x: 0, y: 0, z: 0}
---- !u!114 &3079491552343242735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4336690075909553390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98c13c0b92144414dac1ba2dcc9c7642, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forwardSpeed: 1
-  sideSpeed: 1
-  master: {fileID: 0}
+  forwardSpeed: 30
+  backSpeed: 2
+  rotateSpeed: 2
 --- !u!1 &5578176567894993019
 GameObject:
   m_ObjectHideFlags: 0
