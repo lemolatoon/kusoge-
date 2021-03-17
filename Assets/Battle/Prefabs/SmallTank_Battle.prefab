@@ -410,10 +410,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   master: {fileID: 0}
-  bullet: {fileID: 7920680209554371550, guid: b6a3acff2cb893f4891779961cabc3fa, type: 3}
+  bullet: {fileID: 0}
   forwardSpeed: 1
   sideSpeed: 1
-  centerOfMass: {x: 0, y: 0, z: 0}
+  tower: {fileID: 0}
+  mask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &3079491552343242735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -762,7 +765,7 @@ GameObject:
   - component: {fileID: 2724643204556024645}
   m_Layer: 0
   m_Name: SmallTank_Tower
-  m_TagString: Untagged
+  m_TagString: tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

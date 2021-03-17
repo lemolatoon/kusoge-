@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1957101959021913104}
   - component: {fileID: 1957101959021913105}
   - component: {fileID: 1957101959021913106}
-  - component: {fileID: 4051990544606716654}
   m_Layer: 0
   m_Name: bullet
   m_TagString: Untagged
@@ -95,19 +94,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4051990544606716654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1957101959021913107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20f4d175c5eff5946acf7660c0627b40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forwardSpeed: 0.5
 --- !u!1 &4400885001205137694
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,4 +138,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f4d175c5eff5946acf7660c0627b40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 0.5
+  forwardSpeed: 3

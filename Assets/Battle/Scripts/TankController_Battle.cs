@@ -15,20 +15,41 @@ public class TankController_Battle : MonoBehaviour
     public float forwardSpeed = 1.0f;
     public float sideSpeed = 1.0f;
 
-     public Vector3 centerOfMass; 
+    public GameObject tower;
+    public LayerMask mask;
+    public Vector3 currentMousePos = new Vector3(0, 0, 0);
     private Rigidbody rb;
     
     // Start is called before the first frame update
     void Start()
     {   
         rb = GetComponent<Rigidbody>();
-        // rb.centerOfMass = this.centerOfMass;
+        tower = GameObject.FindWithTag("tower");
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
 
+        // Camera cam = Camera.main; //camera取得
+        // Vector3 mousePos = Input.mousePosition;
+        // Debug.Log(mousePos);
+        // Ray ray = cam.ScreenPointToRay(mousePos); //cameraからマウスの場所に向かってのrayをつくる
+        // RaycastHit[] raycastHitList =  Physics.RaycastAll(ray, Mathf.Infinity, mask);
+        // if(raycastHitList.Length != 0) {
+        //     RaycastHit raycastHit = raycastHitList[0]; //当たった物体(plane)を取得
+
+        //     float distance = Vector3.Distance(cam.transform.position, raycastHit.point); //距離をはかる
+        //     Vector3 Pos = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, distance)); //ワールド座標に変換
+        //     Pos.y = tower.transform.position.y; //yをtowerに合わせる
+        //     currentMousePos = Pos;
+        //     tower.transform.LookAt(Pos);
+        // }
+
+    }
+
+    public void LookAt(Vector3 vector) {
+        tower.transform.LookAt(vector);
     }
 
     public void thirdMove(float vertical, float horizontal, float deltaTime) {
@@ -44,9 +65,8 @@ public class TankController_Battle : MonoBehaviour
     }
 
     public void shoot(Vector3 shotPos) {
-        GameObject bull = Instantiate(bullet, this.transform.position + 1.0f * this.transform.forward, bullet.transform.rotation) as GameObject;
+        GameObject bull = Instantiate(bullet, this.transform.position + 1.0f * tower.transform.forward, bullet.transform.rotation) as GameObject;
         bull.transform.LookAt(shotPos);
-        this.transform.LookAt(shotPos);
     }
 
 }
