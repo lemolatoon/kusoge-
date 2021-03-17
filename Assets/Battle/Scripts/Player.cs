@@ -42,25 +42,6 @@ public class Player : MonoBehaviour
 
         tankController.thirdMove(vertical, horizontal, Time.fixedDeltaTime);
 
-        // if(Input.touchCount == 1) { //一本指の時
-        //     Vector3 pos = Input.touches[0].position;
-        //     if (pos.x >= 470.4 || pos.y >= 394.0) { //joystickの範囲でないなら
-        //         Debug.Log("mousePos設定");
-        //         this.mousePositionInCanvas = pos;
-        //     } else { //joystickの範囲なら
-        //     }
-        // } else if(Input.touchCount == 2) { //二本指のとき
-        //     Touch[] myTouches = Input.touches;
-        //     for(int i = 0; i < myTouches.Length; i++) {
-        //         Touch touch = myTouches[i];
-        //         var pos = touch.position;
-        //         if ((pos.x >= 470.4 || pos.y >= 394.0) && touch.phase == TouchPhase.Began) { //joystickの範囲でないかつ指が触れたときならば
-        //             Debug.Log("mousePos設定");
-        //             this.mousePositionInCanvas = pos;
-        //         }
-        //     }
-        // }
-
         //tankの向く方向の処理
         Camera cam = Camera.main; //camera取得
         Vector3 mousePos = this.mousePositionInCanvas;
