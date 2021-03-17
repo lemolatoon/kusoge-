@@ -12,6 +12,8 @@ public class VariableJoystick : Joystick
 
     private Vector2 fixedPosition = Vector2.zero;
 
+    public Vector2 backgroundPos; 
+
     public void SetMode(JoystickType joystickType)
     {
         this.joystickType = joystickType;
@@ -55,6 +57,7 @@ public class VariableJoystick : Joystick
         {
             Vector2 difference = normalised * (magnitude - moveThreshold) * radius;
             background.anchoredPosition += difference;
+            this.backgroundPos = background.anchoredPosition;
         }
         base.HandleInput(magnitude, normalised, radius, cam);
     }
