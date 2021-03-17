@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
 
     public GameObject master;
     private VariableJoystick joystick;
+    private GameObject joystickObj;
 
     private Vector3 mousePositionInCanvas {get; set;}
     private Vector3 currentMousePos {get; set;}
@@ -25,7 +26,8 @@ public class Player : MonoBehaviour
     {
         tankController = this.GetComponent<TankController_Battle>();
         GameMaster_Battle gm = this.master.GetComponent<GameMaster_Battle>();
-        joystick = gm.joystick.GetComponent<VariableJoystick>();
+        joystickObj = gm.joystick;
+        joystick = joystickObj.GetComponent<VariableJoystick>();
         mousePositionInCanvas = Vector3.zero;
     }
 
@@ -78,7 +80,7 @@ public class Player : MonoBehaviour
         //マルチタッチ処理
         Debug.Log(joystick.backgroundPos);
         // Debug.Log(Input.mousePosition);
-        if(Input.touchCount > 0) {
+        if(Input.touchCount > 0 && joystickObj.activeSelf) {
             Touch[] myTouches = Input.touches;
             for(int i = 0; i < myTouches.Length; i++) {
                 Touch touch = myTouches[i];
@@ -95,8 +97,8 @@ public class Player : MonoBehaviour
             this.mousePositionInCanvas = Input.mousePosition;
         }
 
-        if(Input.GetMouseButtonDown(0)) {
-            //tankController.shoot(this.currentMousePos);
+        if(!joystickObj.activeSelf && Input.GetMouseButtonDown(0)) {
+            tankController.shoot(this.currentMousePos);
         }
     }
 
