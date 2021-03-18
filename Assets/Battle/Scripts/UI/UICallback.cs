@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UICallback : MonoBehaviour
 {
@@ -25,4 +26,9 @@ public class UICallback : MonoBehaviour
             joystickObj.SetActive(true);
         }
     }
+
+    public void OnPressedButtonReload() {
+        SceneManager.LoadScene("Battle");
+    }
+
 }

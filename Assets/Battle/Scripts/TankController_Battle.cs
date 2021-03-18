@@ -29,7 +29,7 @@ public class TankController_Battle : MonoBehaviour
     {   
         masterObj = GameObject.Find("GameMaster");
         rb = GetComponent<Rigidbody>();
-        tower = GameObject.FindWithTag("tower");
+        tower = this.transform.Find("Tank").gameObject.transform.Find("SmallTank_Tower").gameObject;
     }
 
     // Update is called once per frame
@@ -69,12 +69,14 @@ public class TankController_Battle : MonoBehaviour
         this.transform.position = r;
     }
 
-    public void Move(float rotation, float deltaTime) {
-        this.transform.Rotate(new Vector3(0, rotation, 0));
+    public void forwardMove(float deltaTime) {
         this.transform.position += forwardSpeed * deltaTime * this.transform.forward;
     }
 
     public void shoot(Vector3 shotPos) {
+        if(tower == null) {
+            return;
+        }
         GameObject bull = Instantiate(BallBullet, tower.transform.position + 1.0f * tower.transform.forward, BallBullet.transform.rotation) as GameObject;
         bull.transform.LookAt(shotPos);
         bull.GetComponent<BulletController>().shoot(shotPos);

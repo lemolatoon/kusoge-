@@ -79,7 +79,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallTank_Battle_Comp
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3079491552343242735, guid: 91e789700f192e04dbe5212c47cc239c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 91e789700f192e04dbe5212c47cc239c, type: 3}
 --- !u!1 &4907717527834622999 stripped
 GameObject:

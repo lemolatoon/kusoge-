@@ -9,6 +9,12 @@ public class TankCollision : MonoBehaviour
     private Player player;
     private TankController_Battle tankController;
     private Exploder exploder;
+
+    private bool stayWall = false;
+
+    public bool StayWall {
+        get {return stayWall;}
+    }
     public float span = 0.1f;
 
     void Start() {
@@ -17,7 +23,7 @@ public class TankCollision : MonoBehaviour
         player = master.smallTank.GetComponent<Player>();
         tankController = master.smallTank.GetComponent<TankController_Battle>();
         exploder = gameObject.GetComponent<Exploder>();
-        InvokeRepeating("shoot", span, span);
+        //InvokeRepeating("shoot", span, span);
     }
 
     void Update() {
@@ -28,7 +34,12 @@ public class TankCollision : MonoBehaviour
             exploder.startExplode();
             exploder.enabled = true;
             Debug.Log("弾にあたったねgameOver");
+            master.gameEnd = true;
             Destroy(gameObject);
+        } else if (other.gameObject.tag == "wall") {
+            stayWall = true;
+        } else {
+            stayWall = false;
         }
     }
 

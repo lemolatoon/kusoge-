@@ -415,8 +415,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BallBullet: {fileID: 2594017704744200804, guid: ac538d2f72a7a9f4da4e6d6d58ba16c2,
     type: 3}
-  forwardSpeed: 3
-  sideSpeed: 3
+  forwardSpeed: 1
+  sideSpeed: 1
   mask:
     serializedVersion: 2
     m_Bits: 256
@@ -433,8 +433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98c13c0b92144414dac1ba2dcc9c7642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 1
-  sideSpeed: 1
 --- !u!114 &1632562751421205858
 MonoBehaviour:
   m_ObjectHideFlags: 0
