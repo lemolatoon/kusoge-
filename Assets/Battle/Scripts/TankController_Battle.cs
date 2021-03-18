@@ -11,6 +11,7 @@ public class TankController_Battle : MonoBehaviour
     public GameObject master;
 
     public GameObject bullet;
+    public GameObject BallBullet;
 
     public float forwardSpeed = 1.0f;
     public float sideSpeed = 1.0f;
@@ -65,8 +66,9 @@ public class TankController_Battle : MonoBehaviour
     }
 
     public void shoot(Vector3 shotPos) {
-        GameObject bull = Instantiate(bullet, this.transform.position + 1.0f * tower.transform.forward, bullet.transform.rotation) as GameObject;
+        GameObject bull = Instantiate(BallBullet, tower.transform.position + 1.0f * tower.transform.forward, bullet.transform.rotation) as GameObject;
         bull.transform.LookAt(shotPos);
+        bull.GetComponent<BulletController>().shoot(shotPos);
     }
 
 }

@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
 
     private Vector3 mousePositionInCanvas {get; set;}
     private Vector3 currentMousePos {get; set;}
+    public Vector3 CurrentMousePos {
+        get{return currentMousePos;}
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -42,24 +45,9 @@ public class Player : MonoBehaviour
 
         tankController.thirdMove(vertical, horizontal, Time.fixedDeltaTime);
 
-        //tankの向く方向の処理
-        Camera cam = Camera.main; //camera取得
-        Vector3 mousePos = this.mousePositionInCanvas;
-        //Debug.Log(mousePos);
-        Ray ray = cam.ScreenPointToRay(mousePos); //cameraからマウスの場所に向かってのrayをつくる
-        RaycastHit[] raycastHitList =  Physics.RaycastAll(ray, Mathf.Infinity, tankController.mask);
-        if(raycastHitList.Length != 0) {
-            RaycastHit raycastHit = raycastHitList[0]; //当たった物体(plane)を取得
-
-            float distance = Vector3.Distance(cam.transform.position, raycastHit.point); //距離をはかる
-            Vector3 Pos = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, distance)); //ワールド座標に変換
-            Pos.y = tankController.tower.transform.position.y; //yをtowerに合わせる
-            this.currentMousePos = Pos;
-            tankController.tower.transform.LookAt(Pos);
-        }
 
         //マルチタッチ処理
-        Debug.Log(joystick.backgroundPos);
+        //Debug.Log(joystick.backgroundPos);
         // Debug.Log(Input.mousePosition);
         if(Input.touchCount > 0 && joystickObj.activeSelf) {
             Touch[] myTouches = Input.touches;
@@ -77,6 +65,27 @@ public class Player : MonoBehaviour
         } else {
             this.mousePositionInCanvas = Input.mousePosition;
         }
+
+
+
+        //tankの向く方向の処理
+        if(!joystickObj.activeSelf) { //joystickがオフのとき
+            Camera cam = Camera.main; //camera取得
+            Vector3 mousePos = this.mousePositionInCanvas;
+            //Debug.Log(mousePos);
+            Ray ray = cam.ScreenPointToRay(mousePos); //cameraからマウスの場所に向かってのrayをつくる
+            RaycastHit[] raycastHitList =  Physics.RaycastAll(ray, Mathf.Infinity, tankController.mask);
+            if(raycastHitList.Length != 0) {
+                RaycastHit raycastHit = raycastHitList[0]; //当たった物体(plane)を取得
+
+                float distance = Vector3.Distance(cam.transform.position, raycastHit.point); //距離をはかる
+                Vector3 Pos = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, distance)); //ワールド座標に変換
+                Pos.y = tankController.tower.transform.position.y; //yをtowerに合わせる
+                this.currentMousePos = Pos;
+                tankController.tower.transform.LookAt(Pos);
+            }
+        }
+
 
         if(!joystickObj.activeSelf && Input.GetMouseButtonDown(0)) {
             tankController.shoot(this.currentMousePos);

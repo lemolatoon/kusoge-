@@ -6,16 +6,24 @@ public class BulletController : MonoBehaviour
 {
 
     public float forwardSpeed = 3.0f;
+    // private Rigidbody rb;
+    public float power = 100.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        // rb = this.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        this.transform.position += transform.TransformDirection(new Vector3(0, 0, forwardSpeed * Time.fixedDeltaTime));
+
     }
+
+    public void shoot(Vector3 shotPos) {
+        var p = power * this.transform.forward;
+        this.GetComponent<Rigidbody>().AddForce(p);
+    } 
+
 }

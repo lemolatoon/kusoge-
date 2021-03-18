@@ -358,6 +358,7 @@ GameObject:
   - component: {fileID: 7139717898056329520}
   - component: {fileID: 974130352}
   - component: {fileID: 3079491552343242735}
+  - component: {fileID: 1632562751421205858}
   m_Layer: 0
   m_Name: SmallTank_Battle
   m_TagString: Untagged
@@ -395,7 +396,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!114 &974130352
 MonoBehaviour:
@@ -411,12 +412,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   master: {fileID: 0}
   bullet: {fileID: 0}
+  BallBullet: {fileID: 2594017704744200804, guid: ac538d2f72a7a9f4da4e6d6d58ba16c2,
+    type: 3}
   forwardSpeed: 1
   sideSpeed: 1
   tower: {fileID: 0}
   mask:
     serializedVersion: 2
     m_Bits: 256
+  currentMousePos: {x: 0, y: 0, z: 0}
 --- !u!114 &3079491552343242735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,6 +436,19 @@ MonoBehaviour:
   forwardSpeed: 1
   sideSpeed: 1
   master: {fileID: 0}
+--- !u!114 &1632562751421205858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4336690075909553390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cae77c752e9ca8245b10a09cbbcf6da3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterObj: {fileID: 0}
 --- !u!1 &5578176567894993019
 GameObject:
   m_ObjectHideFlags: 0

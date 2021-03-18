@@ -13,6 +13,7 @@ public class UICallback : MonoBehaviour
         master = masterObj.GetComponent<GameMaster_Battle>();
         joystickObj = master.joystick;
         joystick = joystickObj.GetComponent<VariableJoystick>();
+        joystickObj.SetActive(false);
     }
 
     public void OnValueChangedToggle() {
