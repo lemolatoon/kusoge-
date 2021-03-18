@@ -7,9 +7,6 @@ public class Player : MonoBehaviour
 {   
 
     private TankController_Battle tankController;
-    public float forwardSpeed = 1.0f;
-
-    public float sideSpeed = 1.0f;
 
     // public float backSpeed = 2.0f;
     // public float rotateSpeed = 2.0f;

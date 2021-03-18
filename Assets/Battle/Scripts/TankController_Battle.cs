@@ -69,6 +69,11 @@ public class TankController_Battle : MonoBehaviour
         this.transform.position = r;
     }
 
+    public void Move(float rotation, float deltaTime) {
+        this.transform.Rotate(new Vector3(0, rotation, 0));
+        this.transform.position += forwardSpeed * deltaTime * this.transform.forward;
+    }
+
     public void shoot(Vector3 shotPos) {
         GameObject bull = Instantiate(BallBullet, tower.transform.position + 1.0f * tower.transform.forward, BallBullet.transform.rotation) as GameObject;
         bull.transform.LookAt(shotPos);

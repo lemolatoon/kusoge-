@@ -359,6 +359,9 @@ GameObject:
   - component: {fileID: 974130352}
   - component: {fileID: 3079491552343242735}
   - component: {fileID: 1632562751421205858}
+  - component: {fileID: 1711571302616071622}
+  - component: {fileID: 1677020996404535293}
+  - component: {fileID: 974130359}
   m_Layer: 0
   m_Name: SmallTank_Battle
   m_TagString: Untagged
@@ -410,12 +413,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07d30911c694b0a47b881e09e4c796ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 4400885001205137694, guid: b6a3acff2cb893f4891779961cabc3fa, type: 3}
   BallBullet: {fileID: 2594017704744200804, guid: ac538d2f72a7a9f4da4e6d6d58ba16c2,
     type: 3}
   forwardSpeed: 3
   sideSpeed: 3
-  tower: {fileID: 0}
   mask:
     serializedVersion: 2
     m_Bits: 256
@@ -447,6 +448,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   span: 1
+--- !u!114 &1711571302616071622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4336690075909553390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8447707869e4740843fba36fa42f84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionEffectsContainer: {fileID: 100000, guid: 15ca5b8fa431dc04291a79cadcd19874,
+    type: 3}
+  scale: 0.4
+  playbackSpeed: 0.4
+--- !u!114 &1677020996404535293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4336690075909553390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 026a2deff3dab194893abb8f75720da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumetricExplosion: {fileID: 100000, guid: 5d028565f79e270408884b995abc06ef, type: 3}
+  count: 30
+  scale: 1
+  randomness: 1
+  duration: 1
+--- !u!114 &974130359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4336690075909553390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d039134acf55a14fbb781a9c088c4ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionTime: Infinity
+  randomizeExplosionTime: 0
+  radius: 15
+  power: 1
+  probeCount: 150
+  explodeDuration: 0.5
 --- !u!1 &5578176567894993019
 GameObject:
   m_ObjectHideFlags: 0

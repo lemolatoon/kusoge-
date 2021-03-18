@@ -1,19 +1,13 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameMaster_Battle : MonoBehaviour
+public class TankExplosion : MonoBehaviour
 {
-
-    public GameObject smallTank;
-    public GameObject tankComputer;
-
-    public GameObject joystick;
-
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame

@@ -8,6 +8,7 @@ public class TankCollision : MonoBehaviour
     private GameMaster_Battle master;
     private Player player;
     private TankController_Battle tankController;
+    private Exploder exploder;
     public float span = 0.1f;
 
     void Start() {
@@ -15,7 +16,8 @@ public class TankCollision : MonoBehaviour
         master = masterObj.GetComponent<GameMaster_Battle>();
         player = master.smallTank.GetComponent<Player>();
         tankController = master.smallTank.GetComponent<TankController_Battle>();
-        // InvokeRepeating("shoot", span, span);
+        exploder = gameObject.GetComponent<Exploder>();
+        InvokeRepeating("shoot", span, span);
     }
 
     void Update() {
@@ -23,6 +25,8 @@ public class TankCollision : MonoBehaviour
     
     void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "bullet") {
+            exploder.startExplode();
+            exploder.enabled = true;
             Debug.Log("弾にあたったねgameOver");
             Destroy(gameObject);
         }
