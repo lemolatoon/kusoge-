@@ -8,15 +8,18 @@ public class TankController_Battle : MonoBehaviour
 
     private Vector3 velocity;
 
-    public GameObject master;
+    private GameObject masterObj;
 
-    public GameObject bullet;
+    // public GameObject bullet;
     public GameObject BallBullet;
 
     public float forwardSpeed = 1.0f;
     public float sideSpeed = 1.0f;
 
-    public GameObject tower;
+    private GameObject tower;
+    public GameObject Tower {
+        get {return tower;}
+    }
     public LayerMask mask;
     public Vector3 currentMousePos = new Vector3(0, 0, 0);
     private Rigidbody rb;
@@ -24,6 +27,7 @@ public class TankController_Battle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   
+        masterObj = GameObject.Find("GameMaster");
         rb = GetComponent<Rigidbody>();
         tower = GameObject.FindWithTag("tower");
     }
@@ -66,7 +70,7 @@ public class TankController_Battle : MonoBehaviour
     }
 
     public void shoot(Vector3 shotPos) {
-        GameObject bull = Instantiate(BallBullet, tower.transform.position + 1.0f * tower.transform.forward, bullet.transform.rotation) as GameObject;
+        GameObject bull = Instantiate(BallBullet, tower.transform.position + 1.0f * tower.transform.forward, BallBullet.transform.rotation) as GameObject;
         bull.transform.LookAt(shotPos);
         bull.GetComponent<BulletController>().shoot(shotPos);
     }

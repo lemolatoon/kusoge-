@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class TankCollision : MonoBehaviour
 {   
-    public GameObject masterObj;
+    private GameObject masterObj;
     private GameMaster_Battle master;
     private Player player;
     private TankController_Battle tankController;
     public float span = 0.1f;
 
     void Start() {
+        masterObj = GameObject.Find("GameMaster");
         master = masterObj.GetComponent<GameMaster_Battle>();
         player = master.smallTank.GetComponent<Player>();
         tankController = master.smallTank.GetComponent<TankController_Battle>();
-        InvokeRepeating("shoot", span, span);
+        // InvokeRepeating("shoot", span, span);
     }
 
     void Update() {
@@ -23,6 +24,7 @@ public class TankCollision : MonoBehaviour
     void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "bullet") {
             Debug.Log("弾にあたったねgameOver");
+            Destroy(gameObject);
         }
     }
 

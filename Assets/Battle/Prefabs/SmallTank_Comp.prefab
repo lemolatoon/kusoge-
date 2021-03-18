@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1478074498
 Transform:
   m_ObjectHideFlags: 0
@@ -39,7 +39,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1478074497}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -101,7 +101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1986385108
 Transform:
   m_ObjectHideFlags: 0
@@ -356,9 +356,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3991548305568736852}
   - component: {fileID: 7139717898056329520}
-  - component: {fileID: 522928901744943100}
+  - component: {fileID: 974130352}
+  - component: {fileID: 1632562751421205858}
   m_Layer: 0
-  m_Name: SmallTank
+  m_Name: SmallTank_Comp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -396,7 +397,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &522928901744943100
+--- !u!114 &974130352
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -405,12 +406,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 4336690075909553390}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70cfe50baa210fc4aae39d15f819b17a, type: 3}
+  m_Script: {fileID: 11500000, guid: 07d30911c694b0a47b881e09e4c796ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 30
-  backSpeed: 2
-  rotateSpeed: 2
+  bullet: {fileID: 4400885001205137694, guid: b6a3acff2cb893f4891779961cabc3fa, type: 3}
+  BallBullet: {fileID: 2594017704744200804, guid: ac538d2f72a7a9f4da4e6d6d58ba16c2,
+    type: 3}
+  forwardSpeed: 3
+  sideSpeed: 3
+  mask:
+    serializedVersion: 2
+    m_Bits: 256
+  currentMousePos: {x: 0, y: 0, z: 0}
+--- !u!114 &1632562751421205858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4336690075909553390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cae77c752e9ca8245b10a09cbbcf6da3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  span: 1
 --- !u!1 &5578176567894993019
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,7 +643,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6403985792917776142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1923861511023298241}
@@ -744,7 +764,7 @@ GameObject:
   - component: {fileID: 2724643204556024645}
   m_Layer: 0
   m_Name: SmallTank_Tower
-  m_TagString: Untagged
+  m_TagString: tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

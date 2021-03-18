@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     // public float backSpeed = 2.0f;
     // public float rotateSpeed = 2.0f;
 
-    public GameObject master;
+    private GameObject masterObj;
     private VariableJoystick joystick;
     private GameObject joystickObj;
 
@@ -26,9 +26,10 @@ public class Player : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        masterObj = GameObject.Find("GameMaster");
         tankController = this.GetComponent<TankController_Battle>();
-        GameMaster_Battle gm = this.master.GetComponent<GameMaster_Battle>();
+        GameMaster_Battle gm = this.masterObj.GetComponent<GameMaster_Battle>();
         joystickObj = gm.joystick;
         joystick = joystickObj.GetComponent<VariableJoystick>();
         mousePositionInCanvas = Vector3.zero;
@@ -80,9 +81,9 @@ public class Player : MonoBehaviour
 
                 float distance = Vector3.Distance(cam.transform.position, raycastHit.point); //距離をはかる
                 Vector3 Pos = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, distance)); //ワールド座標に変換
-                Pos.y = tankController.tower.transform.position.y; //yをtowerに合わせる
+                Pos.y = tankController.Tower.transform.position.y; //yをtowerに合わせる
                 this.currentMousePos = Pos;
-                tankController.tower.transform.LookAt(Pos);
+                tankController.Tower.transform.LookAt(Pos);
             }
         }
 

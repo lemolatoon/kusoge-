@@ -396,7 +396,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &974130352
 MonoBehaviour:
@@ -410,12 +410,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07d30911c694b0a47b881e09e4c796ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  master: {fileID: 0}
-  bullet: {fileID: 0}
+  bullet: {fileID: 4400885001205137694, guid: b6a3acff2cb893f4891779961cabc3fa, type: 3}
   BallBullet: {fileID: 2594017704744200804, guid: ac538d2f72a7a9f4da4e6d6d58ba16c2,
     type: 3}
-  forwardSpeed: 1
-  sideSpeed: 1
+  forwardSpeed: 3
+  sideSpeed: 3
   tower: {fileID: 0}
   mask:
     serializedVersion: 2
@@ -435,7 +434,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forwardSpeed: 1
   sideSpeed: 1
-  master: {fileID: 0}
 --- !u!114 &1632562751421205858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,7 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae77c752e9ca8245b10a09cbbcf6da3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterObj: {fileID: 0}
+  span: 1
 --- !u!1 &5578176567894993019
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,7 +659,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6403985792917776142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1923861511023298241}
