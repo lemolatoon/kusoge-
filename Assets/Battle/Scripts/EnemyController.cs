@@ -11,15 +11,23 @@ public class EnemyController : MonoBehaviour
     private TankCollision tankCollision;
     private bool walking;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Awake() { //GameMasterに値を入れる処理
+        Debug.Log("enemyStart()");
         masterObj = GameObject.Find("GameMaster");
+        Debug.Log("gameMaster取得:" + masterObj);
         master = masterObj.GetComponent<GameMaster_Battle>();
         master.tankComputer = this.gameObject;
+        Debug.Log("masterのtankcomputer：" + master.tankComputer);
+    }
+    void Start()
+    {
+        //GameMasterから値を受け取る処理
         player = master.smallTank.GetComponent<TankController_Battle>();
-        myTank = this.GetComponent<TankController_Battle>();
+        Debug.Log("player取得:" + player);
+        myTank = GetComponent<TankController_Battle>();
+        Debug.Log(myTank + "---mytank");
         tankCollision = this.GetComponent<TankCollision>();
+
         StartCoroutine(Attacking());
     }
 
@@ -32,6 +40,7 @@ public class EnemyController : MonoBehaviour
     }
 
     private IEnumerator RandomWalk() {
+        walking = true;
         float time = Random.Range(3.0f, 9.0f);
         Debug.Log("randomwalk開始" + time);
         float now = Time.time;
@@ -53,12 +62,10 @@ public class EnemyController : MonoBehaviour
     private IEnumerator Attacking() {
         StartCoroutine(RandomWalk());
         while(true && !master.gameEnd) {
-            if(!walking && UnityEngine.Random.value < 0.0f) { //確率でランダムウォーク 0,7f
+            if(!walking && UnityEngine.Random.value < 0.7f) { //確率でランダムウォーク 0,7f
                 walking = true;
                 StartCoroutine(RandomWalk());
-            } 
-            
-            if(Random.value < 0.9f) { //確率で射撃 0.5f
+            } else if(Random.value < 0.5f) { //確率で射撃 0.5f            
                 Debug.Log("shooot!!");
                 myTank.shoot(player.transform.position);
             }

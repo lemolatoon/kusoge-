@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
 
 
         //tankの向く方向の処理
-        if(!joystickObj.activeSelf) { //joystickがオフのとき
+        if(joystick == null || !joystickObj.activeSelf) { //joystickがもともとない　または　joystickがオフのとき
             Camera cam = Camera.main; //camera取得
             Vector3 mousePos = this.mousePositionInCanvas;
             //Debug.Log(mousePos);
@@ -84,15 +84,15 @@ public class Player : MonoBehaviour
             }
         }
 
-
-        if(!joystickObj.activeSelf && Input.GetMouseButtonDown(0)) {
+        if(joystickObj != null && joystickObj.activeSelf) { //joystickOBjがnullでないかつactiveならば
+        } else if(Input.GetMouseButtonDown(0)) { //右クリックされているなら *ifを反転してしまうとNullReferenceException
             tankController.shoot(this.currentMousePos);
         }
     }
 
     private float readVertical() {
         float v = Input.GetAxis("Vertical");
-        if(Math.Abs(joystick.Vertical) >= Math.Abs(v)) { //もしjoystickの入力の方が大きいのなら
+        if(!(joystick == null) && Math.Abs(joystick.Vertical) >= Math.Abs(v)) { //もしjoystickの入力の方が大きいのなら
             return joystick.Vertical;
         } else {
             return v;
@@ -101,7 +101,7 @@ public class Player : MonoBehaviour
 
     private float readHorizontal() {
         float h = Input.GetAxis("Horizontal");
-        if(Math.Abs(joystick.Horizontal) >= Math.Abs(h)) { //もしjoystickの入力の方が大きいのなら
+        if(!(joystick == null) && Math.Abs(joystick.Horizontal) >= Math.Abs(h)) { //もしjoystickの入力の方が大きいのなら
             return joystick.Horizontal;
         } else {
             return h;

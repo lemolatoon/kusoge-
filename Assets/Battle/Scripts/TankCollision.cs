@@ -31,6 +31,7 @@ public class TankCollision : MonoBehaviour
     
     void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "bullet") {
+            Debug.Log(exploder);
             exploder.startExplode();
             exploder.enabled = true;
             Debug.Log("弾にあたったねgameOver");
