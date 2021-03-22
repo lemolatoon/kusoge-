@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UICallback : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class UICallback : MonoBehaviour
     private GameMaster_Battle master;
     private VariableJoystick joystick;
     private GameObject joystickObj;
+    public Toggle Toggle;
 
     void Awake() {
         masterObj = GameObject.Find("GameMaster");
@@ -18,7 +20,9 @@ public class UICallback : MonoBehaviour
     void Start() {
         joystickObj = master.joystick;
         joystick = joystickObj.GetComponent<VariableJoystick>();
-        joystickObj.SetActive(false);
+        Debug.Log(Data.joystick + "にjoystickを設定");
+        joystickObj.SetActive(Data.joystick);
+        this.Toggle.isOn = Data.joystick;
     }
 
     public void OnValueChangedToggle() {
@@ -32,6 +36,7 @@ public class UICallback : MonoBehaviour
     }
 
     public void OnPressedButtonReload() {
+        Data.joystick = master.joystick.activeSelf;
         SceneManager.LoadScene("Stage1");
     }
 

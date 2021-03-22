@@ -443,6 +443,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 833752125653679981, guid: c26caf43ab6cbab47a3073b5c2148c58,
+        type: 3}
+      propertyPath: Toggle
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 833752125653679982, guid: c26caf43ab6cbab47a3073b5c2148c58,
         type: 3}
       propertyPath: m_LocalPosition.x
