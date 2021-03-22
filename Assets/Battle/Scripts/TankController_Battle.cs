@@ -32,12 +32,12 @@ public class TankController_Battle : MonoBehaviour
         masterObj = GameObject.Find("GameMaster");
         master = masterObj.GetComponent<GameMaster_Battle>();
         master.smallTank = gameObject;
+        tower = this.transform.Find("Tank").gameObject.transform.Find("SmallTank_Tower").gameObject;
     }
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        tower = this.transform.Find("Tank").gameObject.transform.Find("SmallTank_Tower").gameObject;
     }
 
     // Update is called once per frame

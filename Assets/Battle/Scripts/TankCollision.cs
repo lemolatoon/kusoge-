@@ -37,13 +37,13 @@ public class TankCollision : MonoBehaviour
             Debug.Log("弾にあたったねgameOver");
             master.gameEnd = true;
             Destroy(gameObject);
-        } else if (other.gameObject.tag == "wall") {
+        } else if (other.gameObject.tag == "wall" || other.gameObject.tag == "obstacle") {
             stayWall = true;
         }
     }
 
     void OnCollisionExit(Collision other) {
-        if(other.gameObject.tag == "wall") {
+        if(other.gameObject.tag == "wall" || other.gameObject.tag == "obstacle") {
             stayWall = false;
         }
     }

@@ -37,13 +37,12 @@ public class BulletController : MonoBehaviour
 
     public void shoot(Vector3 shotPos) {
         var p = power * this.transform.forward;
-        Debug.Log(power);
         this.GetComponent<Rigidbody>().AddForce(p);
     } 
 
     void OnCollisionEnter(Collision other) {
-        if(other.gameObject.tag == "wall") {
-            if(count == 1) {
+        if(other.gameObject.tag == "wall" || other.gameObject.tag == "obstacle") {
+            if(count == 2) {
                 Destroy(gameObject);
             } else {
                 count++;

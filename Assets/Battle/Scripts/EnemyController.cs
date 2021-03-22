@@ -47,6 +47,7 @@ public class EnemyController : MonoBehaviour
         float passedTime = 0;
         float euler = Random.Range(0, 360);
         myTank.transform.Rotate(new Vector3(0, euler, 0));
+        // myTank.transform.rotation = Quaternion.Euler(bestRotate());
         myTank.forwardMove(Time.fixedDeltaTime);
         for(int i = 0; passedTime < time; i++) {
             passedTime += Time.fixedDeltaTime;
@@ -63,16 +64,64 @@ public class EnemyController : MonoBehaviour
     private IEnumerator Attacking() {
         StartCoroutine(RandomWalk());
         while(true) {
+            string tag = getCollider(myTank.Tower.transform.forward).tag;
             if(!walking && UnityEngine.Random.value < 0.7f) { //確率でランダムウォーク 0,7f
                 walking = true;
                 StartCoroutine(RandomWalk());
-            } else if(Random.value < 0.5f && player != null) { //確率で射撃 0.5f            
+            } else if(Random.value < 0.5f && tag == "tank" && player != null) { //確率で射撃 0.5f            
                 Debug.Log("shooot!!");
                 myTank.shoot(player.transform.position);
             }
 
             yield return new WaitForSeconds(1.0f);
         }
+    }
+
+    private Collider getCollider(Vector3 direction) {
+        // Ray ray = new Ray(myTank.Tower.transform.position, direction); 
+        // Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 1, false);
+        // RaycastHit[] raycastHitList =  Physics.RaycastAll(ray, Mathf.Infinity);
+        // if(raycastHitList.Length != 0) {
+        //     Debug.Log("当たった数" + raycastHitList.Length);
+        //     Debug.Log(raycastHitList[0]);
+        //     return raycastHitList[0].collider;
+        // } else {
+        //     Debug.Log(null);
+        //     return null;
+        // }
+
+        Ray ray = new Ray(myTank.Tower.transform.position, direction); 
+        RaycastHit hit;
+        if(Physics.Raycast(ray, out hit, Mathf.Infinity)) {
+            Debug.Log(hit.collider);
+            return hit.collider;
+        } else {
+            throw new MissingReferenceException();
+        }
+    }
+
+    private Vector3 bestRotate() {
+        Vector3 direction = myTank.Tower.transform.forward;
+        Vector3 rotation = myTank.transform.eulerAngles;
+        if(getCollider(direction).tag == "obstacle") {
+            float y = rotation.y;
+            int sign;
+            if(Random.value > 0.5f) {
+                sign = 1;
+            } else {
+                sign = -1;
+            }
+            Debug.Log("rotation.y :" + rotation.y);
+            for(int i = 1; getCollider(Quaternion.Euler(0, rotation.y, 0) * direction).tag != "obstacle"; i++) {
+                rotation.y += sign * rotation.y + i;
+                Debug.Log("rotation.y :" + rotation.y);
+                if(i >= 360) {
+                    Debug.Log("一周してもダメだった");
+                    break;
+                }
+            }
+        }
+        return rotation;
     }
 
 }
