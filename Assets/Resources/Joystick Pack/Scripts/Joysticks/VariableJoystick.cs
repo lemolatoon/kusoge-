@@ -14,6 +14,9 @@ public class VariableJoystick : Joystick
 
     public Vector2 backgroundPos; 
 
+    private GameObject masterObj;
+    private GameMaster_Battle master;
+
     public void SetMode(JoystickType joystickType)
     {
         this.joystickType = joystickType;
@@ -24,6 +27,13 @@ public class VariableJoystick : Joystick
         }
         else
             background.gameObject.SetActive(false);
+    }
+
+    void Awake() {
+        masterObj = GameObject.Find("GameMaster");
+        master = masterObj.GetComponent<GameMaster_Battle>();
+        
+        master.joystick = gameObject;
     }
 
     protected override void Start()

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -21,6 +21,9 @@ public class TankController_Battle : MonoBehaviour
     public GameObject Tower {
         get {return tower;}
     }
+    
+    public int bulletCount {get; set;}
+
     public LayerMask mask;
     public Vector3 currentMousePos = new Vector3(0, 0, 0);
     private Rigidbody rb;
@@ -64,12 +67,15 @@ public class TankController_Battle : MonoBehaviour
     }
 
     public void shoot(Vector3 shotPos) {
-        if(tower == null) {
+        if(tower == null || bulletCount >= 3) {
             return;
         }
         GameObject bull = Instantiate(BallBullet, tower.transform.position + 1.0f * tower.transform.forward, BallBullet.transform.rotation) as GameObject;
+        BulletController bullCon = bull.GetComponent<BulletController>();
+        bullCon.init(gameObject);
         bull.transform.LookAt(shotPos);
-        bull.GetComponent<BulletController>().shoot(shotPos);
+        bullCon.shoot(shotPos);
+        bulletCount++;
     }
 
 }
