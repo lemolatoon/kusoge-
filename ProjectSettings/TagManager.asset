@@ -8,6 +8,8 @@ TagManager:
   - tower
   - bullet
   - wall
+  - obstacle
+  - tank
   layers:
   - Default
   - TransparentFX
