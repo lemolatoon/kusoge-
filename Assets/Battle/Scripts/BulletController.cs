@@ -5,17 +5,35 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
 
-    public float forwardSpeed = 3.0f;
+    private int count = 0; 
+    public float power = 25.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        // rb = this.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        this.transform.position += transform.TransformDirection(new Vector3(0, 0, forwardSpeed * Time.fixedDeltaTime));
+
     }
+
+    public void shoot(Vector3 shotPos) {
+        var p = power * this.transform.forward;
+        Debug.Log(power);
+        this.GetComponent<Rigidbody>().AddForce(p);
+    } 
+
+    void OnCollisionEnter(Collision other) {
+        if(other.gameObject.tag == "wall") {
+            if(count == 1) {
+                Destroy(gameObject);
+            } else {
+                count++;
+            }
+        }
+    }
+
 }
