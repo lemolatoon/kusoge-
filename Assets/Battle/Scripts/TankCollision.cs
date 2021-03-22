@@ -39,7 +39,11 @@ public class TankCollision : MonoBehaviour
             Destroy(gameObject);
         } else if (other.gameObject.tag == "wall") {
             stayWall = true;
-        } else {
+        }
+    }
+
+    void OnCollisionExit(Collision other) {
+        if(other.gameObject.tag == "wall") {
             stayWall = false;
         }
     }

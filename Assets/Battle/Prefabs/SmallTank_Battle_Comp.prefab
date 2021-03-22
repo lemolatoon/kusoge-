@@ -22,17 +22,17 @@ PrefabInstance:
     - target: {fileID: 3991548305568736852, guid: 91e789700f192e04dbe5212c47cc239c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 7.75
       objectReference: {fileID: 0}
     - target: {fileID: 3991548305568736852, guid: 91e789700f192e04dbe5212c47cc239c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.72
       objectReference: {fileID: 0}
     - target: {fileID: 3991548305568736852, guid: 91e789700f192e04dbe5212c47cc239c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3991548305568736852, guid: 91e789700f192e04dbe5212c47cc239c,
         type: 3}
@@ -42,7 +42,7 @@ PrefabInstance:
     - target: {fileID: 3991548305568736852, guid: 91e789700f192e04dbe5212c47cc239c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3991548305568736852, guid: 91e789700f192e04dbe5212c47cc239c,
         type: 3}
@@ -52,7 +52,7 @@ PrefabInstance:
     - target: {fileID: 3991548305568736852, guid: 91e789700f192e04dbe5212c47cc239c,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3991548305568736852, guid: 91e789700f192e04dbe5212c47cc239c,
         type: 3}
@@ -67,7 +67,7 @@ PrefabInstance:
     - target: {fileID: 3991548305568736852, guid: 91e789700f192e04dbe5212c47cc239c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 3991548305568736852, guid: 91e789700f192e04dbe5212c47cc239c,
         type: 3}
@@ -78,6 +78,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SmallTank_Battle_Comp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7139717898056329520, guid: 91e789700f192e04dbe5212c47cc239c,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 32
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3079491552343242735, guid: 91e789700f192e04dbe5212c47cc239c, type: 3}

@@ -47,11 +47,12 @@ public class EnemyController : MonoBehaviour
         float passedTime = 0;
         float euler = Random.Range(0, 360);
         myTank.transform.Rotate(new Vector3(0, euler, 0));
-        while(passedTime < time) {
+        myTank.forwardMove(Time.fixedDeltaTime);
+        for(int i = 0; passedTime < time; i++) {
             passedTime += Time.fixedDeltaTime;
             myTank.forwardMove(Time.fixedDeltaTime);
             yield return new WaitForFixedUpdate();
-            if(tankCollision.StayWall) {
+            if(i > 10 && tankCollision.StayWall) {
                 break;
             }
         }
@@ -61,11 +62,11 @@ public class EnemyController : MonoBehaviour
 
     private IEnumerator Attacking() {
         StartCoroutine(RandomWalk());
-        while(true && !master.gameEnd) {
+        while(true) {
             if(!walking && UnityEngine.Random.value < 0.7f) { //確率でランダムウォーク 0,7f
                 walking = true;
                 StartCoroutine(RandomWalk());
-            } else if(Random.value < 0.5f) { //確率で射撃 0.5f            
+            } else if(Random.value < 0.5f && player != null) { //確率で射撃 0.5f            
                 Debug.Log("shooot!!");
                 myTank.shoot(player.transform.position);
             }

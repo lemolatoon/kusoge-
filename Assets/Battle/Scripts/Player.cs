@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     // public float rotateSpeed = 2.0f;
 
     private GameObject masterObj;
+    private GameMaster_Battle master;
     private VariableJoystick joystick;
     private GameObject joystickObj;
 
@@ -26,9 +27,11 @@ public class Player : MonoBehaviour
     {   
         masterObj = GameObject.Find("GameMaster");
         tankController = this.GetComponent<TankController_Battle>();
-        GameMaster_Battle gm = this.masterObj.GetComponent<GameMaster_Battle>();
-        joystickObj = gm.joystick;
-        joystick = joystickObj.GetComponent<VariableJoystick>();
+        master = masterObj.GetComponent<GameMaster_Battle>();
+        if(master.joystick != null) {
+            joystickObj = master.joystick;
+            joystick = joystickObj.GetComponent<VariableJoystick>();
+        }
         mousePositionInCanvas = Vector3.zero;
     }
 

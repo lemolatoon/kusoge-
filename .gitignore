@@ -65,6 +65,7 @@ crashlytics-build.properties
 Assets/Resources/TerrainTexturesPackFree/
 Assets/Resources/TerrainTexturesPackFree/TerrainTextures/
 Assets/Resources/ADG_Textures/
+Assets/Resources/One-Click_Wall_Materials
 
 #built files
 webGL/
