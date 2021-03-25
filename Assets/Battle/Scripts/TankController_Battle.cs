@@ -14,8 +14,8 @@ public class TankController_Battle : MonoBehaviour
     // public GameObject bullet;
     public GameObject BallBullet;
 
-    public float forwardSpeed = 1.0f;
-    public float sideSpeed = 1.0f;
+    public float forwardSpeed = 3.0f;
+    public float sideSpeed = 333.0f;
 
     private GameObject tower;
     public GameObject Tower {

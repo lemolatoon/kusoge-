@@ -188,10 +188,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallTank_Battle
       objectReference: {fileID: 0}
+    - target: {fileID: 4336690075909553390, guid: 91e789700f192e04dbe5212c47cc239c,
+        type: 3}
+      propertyPath: m_TagString
+      value: player
+      objectReference: {fileID: 0}
     - target: {fileID: 6403985792917776142, guid: 91e789700f192e04dbe5212c47cc239c,
         type: 3}
       propertyPath: m_TagString
-      value: tank
+      value: player
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1320664324382948795, guid: 91e789700f192e04dbe5212c47cc239c, type: 3}
@@ -443,11 +448,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 833752125653679981, guid: c26caf43ab6cbab47a3073b5c2148c58,
-        type: 3}
-      propertyPath: Toggle
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 833752125653679982, guid: c26caf43ab6cbab47a3073b5c2148c58,
         type: 3}
       propertyPath: m_LocalPosition.x

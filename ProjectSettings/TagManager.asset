@@ -10,6 +10,7 @@ TagManager:
   - wall
   - obstacle
   - tank
+  - player
   layers:
   - Default
   - TransparentFX
